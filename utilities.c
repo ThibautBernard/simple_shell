@@ -1,5 +1,28 @@
 #include "holberton.h"
 
+
+/**
+ * _strcmp - compare two string
+ * @s1: string compare to s2
+ * @s2: string compared with s1
+ * @n: length to compare
+ * Return: negative number, positive, 0
+ */
+int _strncmp(const char *s1, char *s2, int nb)
+{
+	int i = 0, count = 0;
+
+	while (s1[i] != '\0' && s2[i] != '\0' && count < nb)
+	{
+		if (s1[i] > s2[i])
+			return (s1[i] - s2[i]);
+		else if (s1[i] < s2[i])
+			return (-(s2[i] - s1[i]));
+		i++;
+		count++;
+	}
+	return (0);
+}
 /**
  *_strlen - _strlen
  * @s: the string to get size
@@ -27,8 +50,7 @@ int _putchar(char c)
 
 /**
  * _putstr - writes all the character c to stdout
- * @c: The character to print
- *
+ * @s: String to print
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
