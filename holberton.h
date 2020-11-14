@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 int _strlen(char *s);
 int _putchar(char c);
 int _putstr(char *s);
