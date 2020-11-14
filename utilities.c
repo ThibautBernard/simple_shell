@@ -10,7 +10,7 @@ int _strlen(char *s)
 	int i;
 
 	for (i = 0; s[i]; i++)
-	;
+		;
 	return (i);
 }
 
@@ -41,7 +41,6 @@ int _putstr(char *s)
 
 	return (0);
 }
-
 /**
  * _concat - concat two string
  * @src: string 1
