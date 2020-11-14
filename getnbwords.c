@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * _ischar - _ischar
  * @c: check if a char
@@ -23,7 +24,6 @@ int getnbwords(char *str, char *d)
 {
 	int i;
 	int cp;
-	int b;
 
 	i = 0;
 	cp = 0;

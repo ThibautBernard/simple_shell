@@ -8,4 +8,6 @@ int _strlen(char *s);
 int _putchar(char c);
 int _putstr(char *s);
 char *_concat(char *src, char *dest);
+int _ischar(char c);
+int getnbwords(char *str, char *d);
 #endif

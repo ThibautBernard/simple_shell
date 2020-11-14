@@ -10,7 +10,7 @@ int _strlen(char *s)
 	int i;
 
 	for (i = 0; s[i]; i++)
-	;
+		;
 	return (i);
 }
 
@@ -41,7 +41,6 @@ int _putstr(char *s)
 
 	return (0);
 }
-
 /**
  * _concat - concat two string
  * @src: string 1
@@ -57,17 +56,17 @@ char *_concat(char *src, char *dest)
 	int j;
 
 	len = (_strlen(src) + _strlen(dest));
-	concat = malloc(sizeof(char) * len + 1);
+	concat = malloc(sizeof(char) * len + 1); 
 	if (concat == 0)
 		return (0);
 
 	for (i = 0; src[i]; i++)
 		concat[i] = src[i];
 	for (j = 0; dest[j]; j++)
-	{
+	{   
 		concat[i] = dest[j];
 		i++;
-	}
+	}   
 	concat[i] = '\0';
 
 	return (concat);
