@@ -3,10 +3,12 @@
 /**
  * child_process - create child process
  * @argv: argumùment to execve
+ * @env: environnement
  * Return: (0)
  */
 int child_process(char **argv, char **env)
 {
+	char *path;
 	int child, status;
 
 	child = fork();
@@ -14,13 +16,20 @@ int child_process(char **argv, char **env)
 		perror("Error chill process");
 	if (child == 0)
 	{
-		if (execve(argv[0], argv, env) == -1)
-			perror("Error exec");;
+		path = parsePATH(argv[0]);
+		if (execve(path, argv, env) == -1)
+			perror("Error exec");
 	}
 	else
 		wait(&status);
 	return (0);
 }
+/**
+ * child_process_built - create child process
+ * for builtin
+ * @argv: arguments
+ * Return: 0
+ */
 int child_process_built(char **argv)
 {
 	int child, status;
@@ -30,7 +39,6 @@ int child_process_built(char **argv)
 		perror("Error chill process");
 	if (child == 0)
 	{
-		//call builtin
 	}
 	else
 		wait(&status);
