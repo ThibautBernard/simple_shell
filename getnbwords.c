@@ -8,7 +8,7 @@
 
 int _ischar(char c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((c >= 21  && c <= 126))
 		return (1);
 	else
 		return (0);
