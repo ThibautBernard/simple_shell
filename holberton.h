@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 void _prompt(void);
 int _strlen(char *s);
 int _strlen_const(const char *s);
@@ -20,4 +21,5 @@ int getnbwords(char *str, char *d);
 char *_getenv(const char *name);
 extern char **environ;
 int _strncmp(const char *s1, char *s2, int nb);
+char *parsePATH(char *cmd);
 #endif

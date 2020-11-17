@@ -2,10 +2,10 @@
 
 
 /**
- * _strcmp - compare two string
+ * _strncmp - compare two string
  * @s1: string compare to s2
  * @s2: string compared with s1
- * @n: length to compare
+ * @nb: length to compare
  * Return: negative number, positive, 0
  */
 int _strncmp(const char *s1, char *s2, int nb)
@@ -77,13 +77,15 @@ char *_concat(char *src, char *dest)
 	int i;
 	int j;
 
-	len = (_strlen(src) + _strlen(dest));
+	len = (_strlen(src) + _strlen(dest) + 1);
 	concat = malloc(sizeof(char) * len + 1);
 	if (concat == 0)
 		return (0);
 
 	for (i = 0; src[i]; i++)
 		concat[i] = src[i];
+	concat[i] = '/';
+	i++;
 	for (j = 0; dest[j]; j++)
 	{
 		concat[i] = dest[j];
