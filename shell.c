@@ -17,6 +17,7 @@ int main(int ac, char **av, char **env)
 	int ret_gline = 0;
 	bui b1[] = {
 		{"exit", exit_process},
+		{"env", print_env},
 		{NULL, NULL}
 	};
 
@@ -25,8 +26,13 @@ int main(int ac, char **av, char **env)
 	{
 		argv = parseintab(buffer);
 		if (_checkbuiltin(b1, argv[0]) == 1)
-			printf("Hello");
-		child_process(argv, env);
+		{
+			_launchbuiltin(b1, argv[0]);
+		}
+		else
+		{
+			child_process(argv, env);
+		}
 		_prompt();
 	}
 	return (0);

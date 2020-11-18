@@ -8,11 +8,12 @@
  */
 int _checkbuiltin(bui *b1, char *s)
 {
-	int i;
+	int i, length = 0;
 
+	length = strlen(s);
 	for (i = 0; b1[i].name; i++)
 	{
-		if (b1[i].name == s)
+		if (strncmp(b1[i].name, s, length) == 0)
 			return (1);
 	}
 	return (0);
@@ -26,13 +27,14 @@ int _checkbuiltin(bui *b1, char *s)
  */
 int _launchbuiltin(bui *b1, char *s)
 {
-	int i;
+	int i, length = 0;
 
+	length = strlen(s);
 	for (i = 0; b1[i].name; i++)
 	{
-		if (b1[i].name == s)
+		if (strncmp(b1[i].name, s, length) == 0)
 		{
-			b1[i].f();
+			b1[i].f(98);
 			return (1);
 		}
 	}

@@ -7,12 +7,17 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+typedef struct bui
+{   
+	char *name;
+	int (*f)(int);
+}bui;
 void _prompt(void);
 int _strlen(char *s);
 int _strlen_const(const char *s);
 int _putchar(char c);
 int _putstr(char *s);
-void print_env(void);
+int print_env(int n);
 char *_concat(char *src, char *dest);
 char **parseintab(char *str);
 int child_process(char **argv, char **env);

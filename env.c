@@ -51,3 +51,20 @@ char *_getenv(const char *name)
 	}
 	return (NULL);
 }
+/**
+ * print_env - print the environnement
+ * @n: nothing
+ * Return: nothing
+ */
+int print_env(int n)
+{
+	int i = 0;
+
+	while (environ[i])
+	{
+		_putstr(environ[i]);
+		_putstr("\n");
+		i++;
+	}
+	return (n);
+}
