@@ -36,8 +36,7 @@ char **parseintab(char *str);
 char *parsePATH(char *cmd);
 
 /*process.c*/
-int child_process(char **argv, char **env);
-int child_process_built(char **argv);
+char *child_process(char **argv, char **env);
 
 /*prompt.c*/
 void _prompt(void);
@@ -48,5 +47,10 @@ int _strlen(char *s);
 int _putchar(char c);
 int _putstr(char *s);
 char *_concat(char *src, char *dest);
+
+/* utilitiesfree.c*/
+int freetab(char **tb);
+
 /*shell.c MAIN*/
+
 #endif

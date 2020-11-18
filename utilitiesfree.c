@@ -5,7 +5,7 @@
  * @tb: table to free
  * Return: 0;
  */
-void freetab(char **tb)
+int freetab(char **tb)
 {
 	int j;
 

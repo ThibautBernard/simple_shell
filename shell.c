@@ -24,6 +24,7 @@ int main(int ac, char **av, char **env)
 	_prompt();
 	while (1 && (ret_gline = getline(&buffer, &length, stdin) != EOF))
 	{
+		
 		argv = parseintab(buffer);
 		if (_checkbuiltin(b1, argv[0]) == 1)
 		{
@@ -31,9 +32,11 @@ int main(int ac, char **av, char **env)
 		}
 		else
 		{
-			child_process(argv, env);
+			_child_process(argv, env);
 		}
 		_prompt();
 	}
+	//free(buffer);
+	//free(argv);*/
 	return (0);
 }

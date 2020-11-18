@@ -6,7 +6,7 @@
  * @env: environnement
  * Return: (0)
  */
-int child_process(char **argv, char **env)
+char *_child_process(char **argv, char **env)
 {
 	char *path;
 	int child, status;
@@ -22,7 +22,8 @@ int child_process(char **argv, char **env)
 	}
 	else
 		wait(&status);
-	return (0);
+//	free(path);
+	return (path);
 }
 /**
  * child_process_built - create child process
