@@ -20,7 +20,7 @@ int _putstr(char *s);
 int print_env(int n);
 char *_concat(char *src, char *dest);
 char **parseintab(char *str);
-int child_process(char **argv, char **env);
+char *_child_process(char **argv, char **env);
 int _ischar(char c);
 int exit_process(int nb);
 int nb(char *str, char *d);
@@ -31,4 +31,5 @@ int _strncmp(const char *s1, char *s2, int nb);
 char *parsePATH(char *cmd);
 int _checkbuiltin(bui *b1, char *s);
 int _launchbuiltin(bui *b1, char *s);
+int freetab(char **tb);
 #endif
