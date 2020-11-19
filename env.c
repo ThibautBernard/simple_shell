@@ -59,6 +59,7 @@ char *_getenv(const char *name)
 int print_env(int n)
 {
 	int i = 0;
+	/**envNodes *tmp = *env;**/
 
 	while (environ[i])
 	{

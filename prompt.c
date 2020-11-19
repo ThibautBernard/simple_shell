@@ -3,7 +3,7 @@
  * _prompt - display a prompt
  * Return: nothing
  */
-void _prompt(void)
+void _prompt()
 {
 	char *prompt;
 

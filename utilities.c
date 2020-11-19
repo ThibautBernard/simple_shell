@@ -70,7 +70,7 @@ int _putstr(char *s)
  * Return: a new string
  * On error, -1 is returned, and errno is set appropriately.
  */
-char *_concat(char *src, char *dest)
+char *_concat(char *src, char *dest, char delim)
 {
 	char *concat;
 	int len;
@@ -84,7 +84,7 @@ char *_concat(char *src, char *dest)
 
 	for (i = 0; src[i]; i++)
 		concat[i] = src[i];
-	concat[i] = '/';
+	concat[i] = delim;
 	i++;
 	for (j = 0; dest[j]; j++)
 	{

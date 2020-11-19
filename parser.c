@@ -53,7 +53,7 @@ char *parsePATH(char *cmd)
 	s = strtok(str, ":");
 	while (s)
 	{
-		ret = _concat(s, cmd);
+		ret = _concat(s, cmd, '/');
 		i = stat(ret, sb);
 		if (i == 0)
 		{
