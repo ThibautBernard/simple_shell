@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+/*shell.c MAIN*/
 /*
 typedef struct env
 {   
@@ -18,7 +19,9 @@ extern char **environ;
 /*env.c*/
 int _strlen_const(const char *s);
 char *_getenv(const char *name);
+//char *_getenv(const char *name, envNodes *env);
 int print_env(int n);
+//int print_env(int n, char **s, envNodes **env);
 
 /*checkbuiltin.c*/
 typedef struct bui
@@ -31,7 +34,7 @@ typedef struct bui
 //void _prompt(envNodes *env);
 int _checkbuiltin(bui *b1, char *s);
 int _launchbuiltin(bui *b1, char *s);
-
+//int _launchbuiltin(bui *b1, char **s, envNodes *env);
 /*_exit.c*/
 int exit_process(int nb);
 
@@ -42,9 +45,12 @@ int getnbwords(char *str, char *d);
 /*parser.c*/
 char **parseintab(char *str);
 char *parsePATH(char *cmd);
+//char *parsePATH(char *cmd, envNodes *env);
 
 /*process.c*/
 char *_child_process(char **argv, char **env);
+//char *_child_process(char **argv, char **env, envNodes *environ);
+//int exit_process(int nb, char **s, envNodes **env);
 
 /*prompt.c*/
 void _prompt(void);
@@ -54,31 +60,18 @@ int _strncmp(const char *s1, char *s2, int nb);
 int _strlen(char *s);
 int _putchar(char c);
 int _putstr(char *s);
-int print_env(int n); //
-//int print_env(int n, char **s, envNodes **env);
 char *_concat(char *src, char *dest, char delim);
-//char *_child_process(char **argv, char **env, envNodes *environ);
-//int exit_process(int nb, char **s, envNodes **env);
-int nb(char *str, char *d);
-int getnbwords(char *str, char *d);
-char *_getenv(const char *name); //
-//char *_getenv(const char *name, envNodes *env);
-extern char **environ;
-int _strncmp(const char *s1, char *s2, int nb);
-char *parsePATH(char *cmd); //
-//char *parsePATH(char *cmd, envNodes *env);
-//int _launchbuiltin(bui *b1, char **s, envNodes *env);
+/* utilitiesfree.c*/
 int freetab(char **tb);
+
+/*_strtok.c*/
+char *_strtok(char *str, const char *delim);
+
+/*structure.?*/
 //envNodes *transformEnv(void);
 //envNodes *add_nodechar_end(envNodes **head, char *s);
 int _setenv(int n, char **s); //
 //int _setenv(int n, char **s, envNodes **env);
+int nb(char *str, char *d);/*??*/
 
-/* utilitiesfree.c*/
-int freetab(char **tb);
-
-/*shell.c MAIN*/
-
-/*_strtok.c*/
-char *_strtok(char *str, const char *delim);
 #endif
