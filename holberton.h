@@ -30,11 +30,10 @@ typedef struct bui
 	int (*f)(int);
 	//int (*f)(int, char **, envNodes **);
 }bui;
-
-//void _prompt(envNodes *env);
 int _checkbuiltin(bui *b1, char *s);
 int _launchbuiltin(bui *b1, char *s);
 //int _launchbuiltin(bui *b1, char **s, envNodes *env);
+
 /*_exit.c*/
 int exit_process(int nb);
 
@@ -54,6 +53,7 @@ char *_child_process(char **argv, char **env);
 
 /*prompt.c*/
 void _prompt(void);
+//void _prompt(envNodes *env);
 
 /*utilities.c*/
 int _strncmp(const char *s1, char *s2, int nb);
@@ -61,6 +61,7 @@ int _strlen(char *s);
 int _putchar(char c);
 int _putstr(char *s);
 char *_concat(char *src, char *dest, char delim);
+
 /* utilitiesfree.c*/
 int freetab(char **tb);
 
@@ -70,7 +71,7 @@ char *_strtok(char *str, const char *delim);
 /*structure.?*/
 //envNodes *transformEnv(void);
 //envNodes *add_nodechar_end(envNodes **head, char *s);
-int _setenv(int n, char **s); //
+int _setenv(int n, char **s);
 //int _setenv(int n, char **s, envNodes **env);
 int nb(char *str, char *d);/*??*/
 
