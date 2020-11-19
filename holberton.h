@@ -53,4 +53,6 @@ int freetab(char **tb);
 
 /*shell.c MAIN*/
 
+/*_strtok.c*/
+char *_strtok(char *str, const char *delim);
 #endif
