@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * main - main function
  * display prompt, create process, get command
@@ -14,29 +13,29 @@ int main(int ac, char **av, char **env)
 	(void)av;
 	char *buffer = NULL, **argv;
 	size_t length = 0;
-/*	envNodes *envt;*/
+	envNodes *envt;
 	int ret_gline = 0;
 	bui b1[] = {
 		{"exit", exit_process},
 		{"env", print_env},
+		{"setenv", _setenv},
+		{"unsetenv", _unsetenv},
 		{NULL, NULL}
 	};
-	/**envt = transformEnv();**/
-	_prompt();
-/*	_prompt(envt);*/
+	envt = transformEnv();
+	_prompt(envt);
 	while (1 && (ret_gline = getline(&buffer, &length, stdin) != EOF))
 	{
-		
 		argv = parseintab(buffer);
-		if (_checkbuiltin(b1, argv[0]) == 1)
+		if (_checkbuiltin(b1, argv) == 1)
 		{
-			_launchbuiltin(b1, argv[0]);
+			_launchbuiltin(b1, argv, envt);
 		}
 		else
 		{
-			_child_process(argv, env);
+			_child_process(argv, env, envt);
 		}
-		_prompt();
+		_prompt(envt);
 	}
 	//free(buffer);
 	//free(argv);*/

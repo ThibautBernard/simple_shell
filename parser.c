@@ -14,7 +14,7 @@ char **parseintab(char *str)
 	av = malloc(sizeof(char *) * (length_param + 1));
 	if (av == NULL || str == NULL)
 		return (NULL);
-	temp = strtok(str, delim);
+	temp = _strtok(str, delim);
 	while (temp)
 	{
 		length_tmp = strlen(temp);
@@ -26,7 +26,7 @@ char **parseintab(char *str)
 			av[i][j] = temp[j];
 		}
 		av[i][j] = '\0';
-		temp = strtok(NULL, delim);
+		temp = _strtok(NULL, delim);
 		i++;
 	}
 	av[i] = NULL;
@@ -38,7 +38,7 @@ char **parseintab(char *str)
  * @cmd: command enter
  * Return: the path of the command or NULL
  */
-char *parsePATH(char *cmd)
+char *parsePATH(char *cmd, envNodes **env)
 {
 	char *str, *ret, *s;
 	struct stat *sb;
@@ -49,7 +49,7 @@ char *parsePATH(char *cmd)
 		return (NULL);
 	if (cmd[0] == '/')
 		return (cmd);
-	str = _getenv("PATH");
+	str = _getenv("PATH", env);
 	s = strtok(str, ":");
 	while (s)
 	{

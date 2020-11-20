@@ -16,6 +16,7 @@ char *_strtok(char *str, const char *delim)
 
 	if (str != NULL)
 		PTR = str;
+
 	ptr2 = PTR;
 	c = PTR[0];
 	b = 0;
@@ -24,15 +25,20 @@ char *_strtok(char *str, const char *delim)
 		for (i = 0; delim[i]; i++)
 		{
 			if (c == delim[i])
-			{
 				b = 1;
-			}
 		}
 		if (b == 0)
 			PTR++;
 		c = PTR[0];
 	}
-	*PTR = '\0';
-	PTR++;
-	return (ptr2);
+	if (c != '\0')
+	{
+		*PTR = '\0';
+		PTR++;
+		return (ptr2);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
