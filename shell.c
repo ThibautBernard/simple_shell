@@ -11,13 +11,14 @@ int main(int ac, char **av, char **env)
 {
 	(void)ac;
 	(void)av;
+	(void)env;
 	char *buffer = NULL, **argv;
 	size_t length = 0;
 	envNodes *envt;
 	int ret_gline = 0;
 	bui b1[] = {
-		{"exit", exit_process},
 		{"env", print_env},
+		{"exit", exit_process},
 		{"setenv", _setenv},
 		{"unsetenv", _unsetenv},
 		{NULL, NULL}

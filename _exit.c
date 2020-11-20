@@ -7,12 +7,16 @@
  */
 int exit_process(int nb, char **s, envNodes **env)
 {
-//	int status = 0;
-//	char const *tmp;
+	int sts = 0;
 	(void)nb;
 	(void)s;
 	(void)env;
 //	tmp = env[1];
-	//status = atoi(tmp);
-	exit(98);
+	if (s[1])
+	{
+		sts = _atoi(s[1]);
+		exit(sts);
+	}
+	else
+		exit(sts);
 }
