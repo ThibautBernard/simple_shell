@@ -6,16 +6,14 @@ int main()
 	char s[] = "a bateau:c";
 	char *d = " :";
 	char *token;
+	int i;
 
 	token = _strtok(s, d); 
-	printf("%s\n", token);
-	token = _strtok(NULL, d); 
-	printf("%s\n", token);
-	token = _strtok(NULL, d); 
-	printf("%s\n", token);
-	token = _strtok(NULL, d); 
-	printf("%s\n", token);
-
+	while (token)
+	{
+		printf("%s\n",token);	
+		token = _strtok(NULL, d);
+	}
 	/*("\n", token);
 	token = strtok(NULL, d);
 	printf("%s\n", token);
