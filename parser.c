@@ -14,7 +14,7 @@ char **parseintab(char *str)
 	av = malloc(sizeof(char *) * (length_param + 1));
 	if (av == NULL || str == NULL)
 		return (NULL);
-	temp = strtok(str, delim);
+	temp = _strtok(str, delim);
 	while (temp)
 	{
 		length_tmp = strlen(temp);
@@ -26,7 +26,7 @@ char **parseintab(char *str)
 			av[i][j] = temp[j];
 		}
 		av[i][j] = '\0';
-		temp = strtok(NULL, delim);
+		temp = _strtok(NULL, delim);
 		i++;
 	}
 	av[i] = NULL;
@@ -50,7 +50,7 @@ char *parsePATH(char *cmd, envNodes **env)
 	if (cmd[0] == '/')
 		return (cmd);
 	str = _getenv("PATH", env);
-	s = strtok(str, ":");
+	s = _strtok(str, ":");
 	while (s)
 	{
 		ret = _concat(s, cmd, '/');
@@ -61,7 +61,7 @@ char *parsePATH(char *cmd, envNodes **env)
 			free(str);
 			return (ret);
 		}
-		s = strtok(NULL, ":");
+		s = _strtok(NULL, ":");
 		free(ret);
 		i++;
 	}
