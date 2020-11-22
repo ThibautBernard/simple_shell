@@ -14,6 +14,7 @@ char *_child_process(char **argv, char **env, envNodes *environ)
 	char *s, *s1, *path;
 	int j;
 	int child, status;
+	struct stat *sb;
 	(void)env;
 	child = fork();
 	if (child == -1)
@@ -24,6 +25,14 @@ char *_child_process(char **argv, char **env, envNodes *environ)
 		if (path != NULL)
 		{
 			if (execve(path, argv, NULL) == -1)
+			{
+				perror("Error exec");
+				_exit(status);
+			}
+		}
+		else if (stat(argv[0], sb) == 0)
+		{
+			if (execve(argv[0], argv, NULL) == -1)
 			{
 				perror("Error exec");
 				_exit(status);
