@@ -47,8 +47,8 @@ char *parsePATH(char *cmd, envNodes **env)
 	sb = malloc(sizeof(struct stat));
 	if (sb == NULL)
 		return (NULL);
-	if (cmd[0] == '/')
-		return (cmd);
+//	if (cmd[0] == '/')
+	//	return (cmd);
 	str = _getenv("PATH", env);
 	s = _strtok(str, ":");
 	while (s)
@@ -67,5 +67,5 @@ char *parsePATH(char *cmd, envNodes **env)
 	}
 	free(str);
 	free(sb);
-	return (NULL);
+	return (cmd);
 }
