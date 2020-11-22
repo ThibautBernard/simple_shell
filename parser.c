@@ -36,6 +36,7 @@ char **parseintab(char *str)
  * parsePATH - parsing the PATH variable
  * and match with the command
  * @cmd: command enter
+ * @env: environment
  * Return: the path of the command or NULL
  */
 char *parsePATH(char *cmd, envNodes **env)
@@ -49,7 +50,13 @@ char *parsePATH(char *cmd, envNodes **env)
 		return (NULL);
 	if (cmd[0] == '/')
 		return (cmd);
-	str = _getenv("PATH", env);
+	str = _getenv("PATH=/", env);
+	if (str == NULL)
+	{
+		printf("parse not found return NULL\n");
+		return (NULL);
+	}
+	printf("path found\n");
 	s = _strtok(str, ":");
 	while (s)
 	{
