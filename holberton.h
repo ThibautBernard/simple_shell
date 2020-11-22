@@ -39,7 +39,7 @@ typedef struct bui
 
 /** parser.c **/
 char **parseintab(char *str);
-char *parsePATH(char *cmd, envNodes **env);
+char *checkPath(char *cmd, envNodes **env);
 
 /** process.c **/
 char *_child_process(char **argv, char **env, envNodes *environ);
@@ -89,4 +89,6 @@ int minus(char *c);
 
 int check_sep(char **argv);
 
+/* utitilities2.c */
+char *_strdup(char *s);
 #endif

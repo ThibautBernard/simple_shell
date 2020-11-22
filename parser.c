@@ -33,13 +33,13 @@ char **parseintab(char *str)
 	return (av);
 }
 /**
- * parsePATH - parsing the PATH variable
+ * checkPATH - check in the path folder and return correct path if found
  * and match with the command
  * @cmd: command enter
  * @env: environment
- * Return: the path of the command or NULL
+ * Return: the path of the command or NULL if path not found or if cmd not found in path
  */
-char *parsePATH(char *cmd, envNodes **env)
+char *checkPath(char *cmd, envNodes **env)
 {
 	char *str, *ret, *s;
 	struct stat *sb;
@@ -48,16 +48,9 @@ char *parsePATH(char *cmd, envNodes **env)
 	sb = malloc(sizeof(struct stat));
 	if (sb == NULL)
 		return (NULL);
-	str = _getenv("PATH", env);
+	str = _getenv("PATH=/", env);
 	if (str == NULL)
-	{
-		str = _getenv("PWD", env);
-		ret = _concat(str, cmd, '/');
-		printf("%s\n", ret);
-		//printf("parse not found return NULL\n");
-		
-		return (ret);
-	}
+		return (NULL);
 	s = _strtok(str, ":");
 	while (s)
 	{
@@ -75,5 +68,5 @@ char *parsePATH(char *cmd, envNodes **env)
 	}
 	free(str);
 	free(sb);
-	return (cmd);
+	return (NULL);
 }

@@ -1,13 +1,18 @@
 #include "holberton.h"
+
+
+
 /**
- * child_process - create child process
+ * _child_process - create child process
  * @argv: argumùment to execve
  * @env: environnement
+ * @environ: environ
  * Return: (0)
  */
 char *_child_process(char **argv, char **env, envNodes *environ)
 {
-	char *path;
+	char *s, *s1, *path;
+	int j;
 	int child, status;
 	(void)env;
 	child = fork();
@@ -15,16 +20,34 @@ char *_child_process(char **argv, char **env, envNodes *environ)
 		perror("Error chill process");
 	if (child == 0)
 	{
-		path = parsePATH(argv[0], &environ);
-		if (execve(path, argv, NULL) == -1)
+		path = checkPath(argv[0], &environ);/*checkPath*/
+		if (path != NULL)
 		{
-			perror("Error exec");
-			_exit(status);
+			if (execve(path, argv, NULL) == -1)
+			{
+				perror("Error exec");
+				_exit(status);
+			}
+		}
+		else
+		{
+			s = _getenv("PWD", &environ);
+			s1 = _concat(s, argv[0], '/');
+			free(s);
+			free(argv[0]);
+			argv[0] = _strdup(s1);
+			if (execve(s1, argv, NULL) == -1)
+			{
+				perror("Error exec");
+				_exit(status);
+				free(s1);
+			}
+			free(s1);
 		}
 	}
 	else
 		wait(&status);
-//	free(path);
+/*	free(path);*/
 	return (path);
 }
 /**
