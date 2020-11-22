@@ -87,4 +87,6 @@ int freetab(char **tb);
 int _atoi(char *s);
 int minus(char *c);
 
+int check_sep(char **argv);
+
 #endif
