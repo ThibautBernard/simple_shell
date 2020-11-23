@@ -121,7 +121,7 @@ char *_getenv(const char *name, envNodes **env)
 			tmp = malloc(sizeof(char) * (length_env - length_name));
 			if (tmp == NULL)
 			{
-				perror("Error getenv");
+				//perror("Error getenv");
 				return (NULL);
 			}
 			l = (length_name);

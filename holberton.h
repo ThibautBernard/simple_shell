@@ -91,4 +91,7 @@ int check_sep(char **argv);
 
 /* utitilities2.c */
 char *_strdup(char *s);
+
+/** exec.c **/
+void exec(char *cmd, char **argv, int status);
 #endif
