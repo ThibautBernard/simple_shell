@@ -1,6 +1,7 @@
 #include "holberton.h"
 /**
  * _prompt - display a prompt
+ * @env: linked list of environnement
  * Return: nothing
  */
 void _prompt(envNodes *env)

@@ -24,9 +24,7 @@ char **parseintab(char *str)
 		if (av[i] == NULL)
 			return (NULL);
 		for (j = 0; temp[j]; j++)
-		{
 			av[i][j] = temp[j];
-		}
 		av[i][j] = '\0';
 		temp = _strtok(NULL, delim);
 		i++;
@@ -35,7 +33,7 @@ char **parseintab(char *str)
 	return (av);
 }
 /**
- * checkPATH - check in the path folder and return correct path if found
+ * checkPath - check in the path folder and return correct path if found
  * and match with the command
  * @cmd: command enter
  * @env: environment

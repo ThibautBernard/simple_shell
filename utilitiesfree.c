@@ -26,7 +26,11 @@ int freetab(char **tb)
 	free(tb);
 	return (0);
 }
-
+/**
+ * free_list - free linked list
+ * @head: head of linked list
+ * Return: nothing
+ */
 void free_list(envNodes *head)
 {
 		envNodes *tmp;

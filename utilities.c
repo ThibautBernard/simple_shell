@@ -67,6 +67,7 @@ int _putstr(char *s)
  * _concat - concat two string
  * @src: string 1
  * @dest: string 2
+ * @delim: delimiter between the string
  * Return: a new string
  * On error, -1 is returned, and errno is set appropriately.
  */
@@ -81,7 +82,6 @@ char *_concat(char *src, char *dest, char delim)
 	concat = malloc(sizeof(char) * len + 1);
 	if (concat == 0)
 		return (0);
-
 	for (i = 0; src[i]; i++)
 		concat[i] = src[i];
 	concat[i] = delim;
@@ -92,6 +92,5 @@ char *_concat(char *src, char *dest, char delim)
 		i++;
 	}
 	concat[i] = '\0';
-
 	return (concat);
 }

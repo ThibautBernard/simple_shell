@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- *_strlen_const - _strlen
+ * _strlen_const - _strlen
  * @s: the string to get size
  * Return: On success size
  */
@@ -12,12 +12,10 @@ int _strlen_const(const char *s)
 		;
 	return (i);
 }
-/*
+/**
  * _setenv - set a variable or modify it in env
- * that is a linked list
  * @n: integer (not used)
  * @s: array of array of commands && parameters
- * given by the user
  * @env: double pointer that store adress of the
  * linked list environemment
  * Return: 1 if succeed
@@ -27,8 +25,8 @@ int _setenv(int n, char **s, envNodes **env)
 	int i = 0, length_var = 0;
 	char *var, *value, *tmpStr;
 	(void)n;
-
 	envNodes *current = *env;
+
 	while (s[i])
 		i++;
 	if (i != 3 || *env == NULL)
@@ -36,32 +34,33 @@ int _setenv(int n, char **s, envNodes **env)
 		write(STDERR_FILENO, "Failure\n", 9);
 		return (0);
 	}
-	var = s[1]; // malloc ?
-	value = s[2]; // malloc ?
+	var = s[1]; /** malloc ? **/
+	value = s[2]; /** malloc ? **/
 	length_var = _strlen(var);
-	tmpStr = _concat(var, value, '='); // free tmpStr
+	tmpStr = _concat(var, value, '='); /** free tmpStr **/
 	while (current->next)
 	{
-		if (strncmp(current->str, var, length_var) == 0)
+		if (_strncmp(current->str, var, length_var) == 0)
 		{
-			//free tmp->str
-			current->str = tmpStr; // ? strdup
-//			free(tmpStr);
+			/**free tmp->str**/
+			current->str = tmpStr; /** strdup ? **/
+			/**free(tmpStr);**/
 			return (1);
 		}
 		 current = current->next;
 	}
-	if (strncmp(current->str, var, length_var) == 0)
+	if (_strncmp(current->str, var, length_var) == 0)
 		current->str = tmpStr;
 	else
 		add_nodechar_end(&current, tmpStr);
-	//free(tmpStr);
+	/**free(tmpStr); **/
 	return (1);
 }
 /**
  * _unsetenv - delete a variable in env
  * @n: integer (not used)
  * @s: array of array of commands && parameters
+ * @env: linked list of the environnment
  * given by the user
  * Return: 1 if succeed
  */
@@ -70,16 +69,16 @@ int _unsetenv(int n, char **s, envNodes **env)
 	int i = 0, length_var = 0, count = 0;
 	char *var;
 	(void)n;
-
 	envNodes *current = *env, *previous;
+
 	while (s[i])
 		i++;
-	if (i != 2 ||*env == NULL)
+	if (i != 2 || *env == NULL)
 	{
 		write(STDERR_FILENO, "Failure\n", 9);
 		return (0);
 	}
-	var = s[1]; // malloc ?
+	var = s[1]; /** malloc ? **/
 	length_var = _strlen(var);
 	while (current)
 	{
@@ -95,7 +94,7 @@ int _unsetenv(int n, char **s, envNodes **env)
 		count++;
 		previous = current;
 		current = current->next;
-	}	
+	}
 	return (1);
 }
 /**
@@ -108,8 +107,8 @@ char *_getenv(const char *name, envNodes **env)
 {
 	int i = 0, x = 0, l, length_name = 0, length_env = 0;
 	char *tmp, *s;
-
 	envNodes *tmp_env = *env;
+
 	if (name == NULL)
 		return (NULL);
 	length_name = _strlen_const(name);
@@ -120,14 +119,11 @@ char *_getenv(const char *name, envNodes **env)
 			length_env = _strlen(tmp_env->str);
 			tmp = malloc(sizeof(char) * (length_env - length_name));
 			if (tmp == NULL)
-			{
-				//perror("Error getenv");
 				return (NULL);
-			}
 			l = (length_name + 1);
 			s = tmp_env->str;
-			//tmp[x] = '/';
-			//x++;
+			/**tmp[x] = '/';**/
+			/**x++;**/
 			while (s[l])
 			{
 				tmp[x] = s[l];
@@ -153,6 +149,7 @@ char *_getenv(const char *name, envNodes **env)
 int print_env(int n, char **s, envNodes **env)
 {
 	int i = 0;
+
 	envNodes *tmp = *env;
 	(void)s;
 	while (tmp)

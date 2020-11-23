@@ -5,7 +5,6 @@
  * @delim: delimiter to check(every char is a different delimiter)
  * Return: return 1 if it s a delimiter
  */
-
 int checkdelim(char c, const char *delim)
 {
 	int i;
@@ -27,7 +26,7 @@ int checkdelim(char c, const char *delim)
 char *_strtok(char *str, const char *delim)
 {
 	static char *PTR;
-	char *ptr2;/*begining*/
+	char *ptr2; /*begining*/
 	char c, c1;
 
 	if (str != NULL)

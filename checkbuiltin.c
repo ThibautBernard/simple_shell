@@ -1,9 +1,9 @@
 #include "holberton.h"
 
 /**
- *_checkbuiltin - check if the commad is a built in
+ * _checkbuiltin - check if the commad is a built in
  * @b1: built in struct
- * @s: command to string
+ * @s: array of array of command
  * Return: 1 if found and 0 if not found.
  */
 int _checkbuiltin(bui *b1, char **s)
@@ -22,9 +22,10 @@ int _checkbuiltin(bui *b1, char **s)
 }
 
 /**
- *_launchbuiltin - Launch a built in command
+ * _launchbuiltin - Launch a built in command
  * @b1: built in struct
- * @s: command to string
+ * @s: array of array of commands
+ * @env: linked list of environments
  * Return: 1 if execute if not 0
  */
 int _launchbuiltin(bui *b1, char **s, envNodes *env)
