@@ -17,13 +17,9 @@ char **parseintab(char *str)
 	temp = _strtok(str, delim);
 	while (temp)
 	{
-<<<<<<< HEAD
 		if (_strncmp(temp, "#", 1) == 0)
 			return (av);
-		length_tmp = strlen(temp);
-=======
 		length_tmp = _strlen(temp);
->>>>>>> 460d4b41ed55b4e4e8119645007e926cbdce50c3
 		av[i] = malloc(sizeof(char) * length_tmp + 1);
 		if (av[i] == NULL)
 			return (NULL);
