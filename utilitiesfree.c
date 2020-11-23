@@ -36,6 +36,6 @@ void free_list(envNodes *head)
 			tmp = head;
 			head = head->next;
 			free(tmp->str);
-			free(tmp);
 		}
+			free(tmp);
 }
