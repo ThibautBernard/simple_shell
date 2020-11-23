@@ -10,6 +10,8 @@ int _checkbuiltin(bui *b1, char **s)
 {
 	int i, length = 0;
 
+	if (s[0] == NULL)
+		return (0);
 	length = strlen(s[0]);
 	for (i = 0; b1[i].name; i++)
 	{

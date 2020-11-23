@@ -33,11 +33,11 @@ char *_child_process(char **argv, char **env, envNodes *environ)
 		{
 			s = _getenv("PWD", &environ);
 			s1 = _concat(s, argv[0], '/');
-			free(s);
+//			free(s);
 			free(argv[0]);
 			argv[0] = _strdup(s1);
 			exec(s1, argv, status);
-			free(s1);
+	//		free(s1);
 		}
 	}
 	else

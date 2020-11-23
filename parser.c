@@ -8,7 +8,7 @@
 char **parseintab(char *str)
 {
 	int i = 0, j = 0, length_param = 0, length_tmp = 0;
-	char **av, *delim = " \n\r\t", *temp;
+	char **av, *delim = " \n\r\t\f", *temp;
 
 	length_param = getnbwords(str, " ");
 	av = malloc(sizeof(char *) * (length_param + 1));

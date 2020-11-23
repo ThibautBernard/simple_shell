@@ -82,6 +82,7 @@ envNodes *transformEnv(void);
 
 /** utilitiesfree.c **/
 int freetab(char **tb);
+void free_list(envNodes *head);
 
 /** _atoi.c **/
 int _atoi(char *s);

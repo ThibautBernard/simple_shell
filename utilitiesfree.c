@@ -26,3 +26,16 @@ int freetab(char **tb)
 	free(tb);
 	return (0);
 }
+
+void free_list(envNodes *head)
+{
+		envNodes *tmp;
+
+		while (head != NULL)
+		{
+			tmp = head;
+			head = head->next;
+			free(tmp->str);
+			free(tmp);
+		}
+}

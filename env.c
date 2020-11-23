@@ -124,10 +124,10 @@ char *_getenv(const char *name, envNodes **env)
 				//perror("Error getenv");
 				return (NULL);
 			}
-			l = (length_name);
+			l = (length_name + 1);
 			s = tmp_env->str;
-			tmp[x] = '/';
-			x++;
+			//tmp[x] = '/';
+			//x++;
 			while (s[l])
 			{
 				tmp[x] = s[l];
