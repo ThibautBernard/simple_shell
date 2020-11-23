@@ -9,7 +9,7 @@ void _prompt(envNodes *env)
 
 	prompt = _getenv("PS1", &env);
 	if (prompt == NULL)
-		_putstr("($) ");
+		_putstr("$ ");
 	else
 		_putstr(prompt);
 }

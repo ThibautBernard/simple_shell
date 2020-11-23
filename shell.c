@@ -24,7 +24,8 @@ int main(int ac, char **av, char **env)
 		{NULL, NULL}
 	};
 	envt = transformEnv();
-	_prompt(envt);
+	if (isatty(STDIN_FILENO) == 1)
+		_prompt(envt);
 	while ((ret_gline = getline(&buffer, &length, stdin)) != EOF)
 	{
 		argv = parseintab(buffer);
@@ -36,7 +37,7 @@ int main(int ac, char **av, char **env)
 		{
 			_child_process(argv, env, envt);
 		}
-//		if (isatty(STDIN_FILENO)
+	if (isatty(STDIN_FILENO) == 1)
 		_prompt(envt);
 	}
 	//free(buffer);
