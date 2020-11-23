@@ -17,6 +17,8 @@ char **parseintab(char *str)
 	temp = _strtok(str, delim);
 	while (temp)
 	{
+		if (_strncmp(temp, "#", 1) == 0)
+			return (av);
 		length_tmp = strlen(temp);
 		av[i] = malloc(sizeof(char) * length_tmp + 1);
 		if (av[i] == NULL)
@@ -37,7 +39,8 @@ char **parseintab(char *str)
  * and match with the command
  * @cmd: command enter
  * @env: environment
- * Return: the path of the command or NULL if path not found or if cmd not found in path
+ * Return: the path of the command
+ * or NULL if path not found or if cmd not found in path
  */
 char *checkPath(char *cmd, envNodes **env)
 {
