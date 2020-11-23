@@ -12,10 +12,10 @@ int _checkbuiltin(bui *b1, char **s)
 
 	if (s[0] == NULL)
 		return (0);
-	length = strlen(s[0]);
+	length = _strlen(s[0]);
 	for (i = 0; b1[i].name; i++)
 	{
-		if (strncmp(b1[i].name, s[0], length) == 0)
+		if (_strncmp(b1[i].name, s[0], length) == 0)
 			return (1);
 	}
 	return (0);
@@ -31,10 +31,10 @@ int _launchbuiltin(bui *b1, char **s, envNodes *env)
 {
 	int i, length = 0;
 
-	length = strlen(s[0]);
+	length = _strlen(s[0]);
 	for (i = 0; b1[i].name; i++)
 	{
-		if (strncmp(b1[i].name, s[0], length) == 0)
+		if (_strncmp(b1[i].name, s[0], length) == 0)
 		{
 			b1[i].f(98, s, &env);
 			return (1);
