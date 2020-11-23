@@ -17,7 +17,7 @@ char **parseintab(char *str)
 	temp = _strtok(str, delim);
 	while (temp)
 	{
-		length_tmp = strlen(temp);
+		length_tmp = _strlen(temp);
 		av[i] = malloc(sizeof(char) * length_tmp + 1);
 		if (av[i] == NULL)
 			return (NULL);
