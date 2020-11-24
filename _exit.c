@@ -19,19 +19,23 @@ int exit_process(int nb, char **s, envNodes **env)
 		if (sts > 0 && sts < 2147483647)
 		{
 			freetab(s);
+/**			free_list(*env);**/
 			exit(sts);
 		}
 		else
 		{
 			freetab(s);
-			_putstr(": 1: exit: Illegal number: -1\n");
+	/**		free_list(*env);**/
+			_putstr("Bad exit status");
+			_putstr("\n");
+			return (0);
 		}
 		/** free_list(*env); **/
 	}
 	else
 	{
 		freetab(s);
-		/** free_list(*env); **/
+	/**	free_list(*env); **/
 		exit(sts);
 	}
 	return (0);

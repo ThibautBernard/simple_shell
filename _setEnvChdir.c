@@ -9,7 +9,7 @@
  */
 int _setenv_chdir(char *var, char *value, envNodes **env)
 {
-	int i = 0, length_var = 0;
+	int length_var = 0;
 	char  *tmpStr;
 	envNodes *current = *env;
 
