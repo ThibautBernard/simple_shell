@@ -44,7 +44,6 @@ int _cd(int a, char **tb, envNodes **env)
 	
 	if (tb[1] == NULL)
 	{
-		printf("NULL\n");
 		tmp = _getenv("HOME", env);
 		changedir(tmp, env);
 		free(tmp);
