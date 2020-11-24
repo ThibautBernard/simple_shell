@@ -18,3 +18,48 @@ char *_strdup(char *s)
 	tmp[i] = '\0';
 	return (tmp);
 }
+/**
+ * _itoa - convert integer to string
+ *
+ * @num : interger to converted
+ * @str: string to converted
+ *
+ * Return: new string containing the integer num
+ */
+char *_itoa(int num, char *str)
+{
+	int i = 0;
+	int rem = 0;
+	int begin = 0;
+	char *r = NULL;
+	int end = 0;
+
+	if (num == 0)
+	{
+		str[i] = '0';
+		str[i + 1] = '\0';
+		return (str);
+	}
+	while (num)
+	{
+		rem = num % 10;
+		if (rem >= 10)
+			str[i] = ('a' + (rem - 10));
+		else
+			str[i] = ('0' + rem);
+		num = num / 10;
+		i++;
+	}
+	i++;
+	str[i] = '\0';
+	r = malloc(sizeof(char) * (i));
+	i--;
+	end = i - 1;
+	for (begin = 0; begin < i; begin++)
+	{
+		r[begin] = str[end];
+		end--;
+	}
+	r[begin] = '\0';
+	return (r);
+}
