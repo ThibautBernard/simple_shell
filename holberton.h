@@ -98,4 +98,7 @@ void exec(char *cmd, char **argv, int status);
 
 /** shell.c **/
 void handle_ctrl(int sig_num);
+
+/** _setEnvChdir.c **/
+int _setenv_chdir(char *var, char *value, envNodes **env);
 #endif
