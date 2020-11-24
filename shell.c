@@ -34,6 +34,7 @@ int main(int ac, char **av, char **env)
 		{"exit", exit_process},
 		{"setenv", _setenv},
 		{"unsetenv", _unsetenv},
+		{"cd", _cd},
 		{NULL, NULL}
 	};
 	signal(SIGINT, handle_ctrl);
