@@ -11,12 +11,9 @@ int _setenv_chdir(char *var, char *value, envNodes **env)
 {
 	int i = 0, length_var = 0;
 	char  *tmpStr;
-	(void)n;
 	envNodes *current = *env;
 
-	while (s[i])
-		i++;
-	if (i != 3 || *env == NULL)
+	if (var == NULL || value == NULL)
 	{
 		write(STDERR_FILENO, "Failure\n", 9);
 		return (0);
