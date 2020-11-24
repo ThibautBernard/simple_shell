@@ -1,4 +1,18 @@
 #include "holberton.h"
+
+/**
+ * handle_ctrl - handle ctrl
+ * @sig_num: int
+ * Return: Nothing
+ */
+void handle_ctrl(int sig_num)
+{
+	(void)sig_num;
+	_putstr("\n");
+	_putstr("$ ");
+}
+
+
 /**
  * main - main function
  * display prompt, get command, transfer command
@@ -22,6 +36,7 @@ int main(int ac, char **av, char **env)
 		{"unsetenv", _unsetenv},
 		{NULL, NULL}
 	};
+	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
 	if (isatty(STDIN_FILENO) == 1)
 		_prompt(envt);

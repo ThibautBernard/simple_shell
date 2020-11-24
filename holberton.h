@@ -95,4 +95,7 @@ char *_strdup(char *s);
 
 /** exec.c **/
 void exec(char *cmd, char **argv, int status);
+
+/** shell.c **/
+void handle_ctrl(int sig_num);
 #endif

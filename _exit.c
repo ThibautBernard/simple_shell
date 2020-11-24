@@ -16,9 +16,17 @@ int exit_process(int nb, char **s, envNodes **env)
 	if (s[1])
 	{
 		sts = _atoi(s[1]);
-		freetab(s);
+		if (sts > 0 && sts < 2147483647)
+		{
+			freetab(s);
+			exit(sts);
+		}
+		else
+		{
+			freetab(s);
+			_putstr(": 1: exit: Illegal number: -1\n");
+		}
 		/** free_list(*env); **/
-		exit(sts);
 	}
 	else
 	{
@@ -26,4 +34,5 @@ int exit_process(int nb, char **s, envNodes **env)
 		/** free_list(*env); **/
 		exit(sts);
 	}
+	return (0);
 }
