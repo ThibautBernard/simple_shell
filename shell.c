@@ -25,7 +25,8 @@ void handle_ctrl(int sig_num)
 int main(int ac, char **av, char **env)
 {
 	(void)ac, (void)av, (void)env;
-	char *buffer = NULL, **argv;
+	char *buffer = NULL;
+	char **argv;
 	size_t length = 0;
 	envNodes *envt;
 	int ret_gline = 0;
