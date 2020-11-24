@@ -41,7 +41,7 @@ int _cd(int a, char **tb, envNodes **env)
 	char *tmp;
 	char *tmp2;
 	(void)a;
-	
+
 	if (tb[1] == NULL)
 	{
 		tmp = _getenv("HOME", env);
@@ -54,7 +54,7 @@ int _cd(int a, char **tb, envNodes **env)
 		changedir(tmp, env);
 		free(tmp);
 	}
-	else if(_strncmp(tb[1], "/", 1) == 0)
+	else if (_strncmp(tb[1], "/", 1) == 0)
 	{
 		changedir(tb[1], env);
 	}
