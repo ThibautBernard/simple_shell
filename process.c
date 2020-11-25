@@ -2,8 +2,8 @@
 /**
  * _child_process - create child process
  * @argv: argumùment to execve
- * @env: environnement
- * @environ: environ
+ * @env: legacy environnement
+ * @envi: linked list environ
  * Return: (0)
  */
 char *_child_process(char **argv, char **env, envNodes *envi)
@@ -22,7 +22,7 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 	if (child == 0)
 	{
 		path = checkPath(argv[0], &envi);
-		printf("%s\n", path);
+/*		printf("%s\n", path);*/
 		if (path != NULL)
 			exec(path, argv, status);
 		else if (stat(argv[0], sb) == 0)
