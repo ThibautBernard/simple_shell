@@ -41,7 +41,7 @@ int main(int ac, char **av, char **env)
 
 
 	(void)ac, (void)av, (void)env;
-/*	signal(SIGINT, handle_ctrl);*/
+	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
 	if (isatty(STDIN_FILENO) == 1)
 		_prompt(envt);
