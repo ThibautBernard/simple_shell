@@ -54,7 +54,7 @@ int _setenv(int n, char **s, envNodes **env)
 		current->str = tmpStr;
 	else
 		add_nodechar_end(&current, tmpStr);
-	/**free(tmpStr); **/
+	free(tmpStr);
 	return (1);
 }
 /**
@@ -79,7 +79,7 @@ int _unsetenv(int n, char **s, envNodes **env)
 		write(STDERR_FILENO, "Failure\n", 9);
 		return (0);
 	}
-	var = s[1]; /** malloc ? **/
+	var = _strdup(s[1]); /** malloc ? **/
 	length_var = _strlen(var);
 	while (current)
 	{
@@ -90,12 +90,14 @@ int _unsetenv(int n, char **s, envNodes **env)
 			else
 				*env = current->next;
 			free(current);
+			free(var);
 			return (1);
 		}
 		count++;
 		previous = current;
 		current = current->next;
 	}
+	free(var);
 	return (1);
 }
 /**
