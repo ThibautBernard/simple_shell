@@ -16,7 +16,7 @@ envNodes *add_nodechar_end(envNodes **head, char *s)
 		return (NULL);
 	if (next != NULL)
 	{
-		next->str = s; /** malloc ? **/
+		next->str = _strdup(s);
 		next->next = NULL;
 		if (*head == NULL)
 			*head = next;
