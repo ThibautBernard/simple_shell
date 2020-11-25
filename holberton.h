@@ -42,7 +42,7 @@ char **parseintab(char *str);
 char *checkPath(char *cmd, envNodes **env);
 
 /** process.c **/
-char *_child_process(char **argv, char **env, envNodes *environ);
+char *_child_process(char **argv, char **env, envNodes *envi);
 int child_process_built(char **argv);
 
 /** utilities.c **/
