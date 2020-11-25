@@ -95,6 +95,7 @@ int _unsetenv(int n, char **s, envNodes **env)
 				previous->next = current->next;
 			else
 				*env = current->next;
+			free(current->str);
 			free(current);
 			free(var);
 			return (1);
