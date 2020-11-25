@@ -13,7 +13,7 @@ int changedir(char *dest, envNodes **env)
 
 	if (chdir(dest) == -1)
 	{
-		printf("-bash: cd: %s: No such file or directory\n", dest);
+/*		printf("-bash: cd: %s: No such file or directory\n", dest);*/
 		return (-1);
 	}
 	else
