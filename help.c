@@ -9,8 +9,6 @@
  */
 int _help(int n, char **s, envNodes **node)
 {
-	(void)n;
-	(void)node;
 	char *arr1[] = {"env", "setenv", "unsetenv", "exit", "cd", NULL};
 	char *arr2[] = {"env - Print the environment\n",
 "setenv [variable] [value] - Initialize or update variable of environment\n",
@@ -19,6 +17,8 @@ int _help(int n, char **s, envNodes **node)
 	char *tmp;
 	int i = 0;
 
+	(void)n;
+	(void)node;
 	while (s[i])
 		i++;
 	tmp = s[1];

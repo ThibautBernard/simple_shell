@@ -24,9 +24,10 @@ int _setenv(int n, char **s, envNodes **env)
 {
 	int i = 0, length_var = 0;
 	char *var, *value, *tmpStr;
-	(void)n;
 	envNodes *current = *env;
 
+
+	(void)n;
 	while (s[i])
 		i++;
 	if (i != 3 || *env == NULL)
@@ -68,9 +69,9 @@ int _unsetenv(int n, char **s, envNodes **env)
 {
 	int i = 0, length_var = 0, count = 0;
 	char *var;
-	(void)n;
 	envNodes *current = *env, *previous;
 
+	(void)n;
 	while (s[i])
 		i++;
 	if (i != 2 || *env == NULL)

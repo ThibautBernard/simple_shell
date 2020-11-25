@@ -24,7 +24,6 @@ void handle_ctrl(int sig_num)
  */
 int main(int ac, char **av, char **env)
 {
-	(void)ac, (void)av, (void)env;
 	char *buffer = NULL;
 	char **argv;
 	size_t length = 0;
@@ -39,6 +38,9 @@ int main(int ac, char **av, char **env)
 		{"cd", _cd},
 		{NULL, NULL}
 	};
+
+
+	(void)ac, (void)av, (void)env;
 	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
 	if (isatty(STDIN_FILENO) == 1)
