@@ -92,7 +92,8 @@ int check_sep(char **argv);
 
 /* utitilities2.c */
 char *_strdup(char *s);
-
+char *_mconcat(char *src, char *dest);
+char *_itoa(int num, char *str);
 /** exec.c **/
 void exec(char *cmd, char **argv, int status);
 
@@ -105,4 +106,7 @@ int _setenv_chdir(char *var, char *value, envNodes **env);
 /** _help.c **/
 int _help(int n, char **s, envNodes **node);
 
+/**chdir**/
+int _cd(int a, char **tb, envNodes **env);
+int changedir(char *dest, envNodes **env);
 #endif

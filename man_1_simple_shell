@@ -1,0 +1,43 @@
+.TH Shell hsh 3 "November 24th 2020" "version 1.0" "Shell manpage"
+.SH NAME
+Shell - command interpreter
+.SH SYNOPSIS
+.B Install: git clone https://github.com/ThibautBernard/simple_shell
+.TP
+.B Execute: gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+.TP
+.B Launch (interactive): ./hsh
+.TP
+.B Launch (non interactive): echo "command_you_choose" | ./hsh
+.TP
+.SH DESCRIPTION
+ Hsh is a command line interpreter
+.PP
+.SH COMMANDS
+.TP
+.B env
+Print the environment
+.TP
+.B setenv [VARIABLE] [VALUE]
+Initialize a new variable or update variable in environment
+.TP
+.B unsetenv [VARIABLE]
+Remove a variable in environment
+.TP
+.B exit [status]
+Exit all the processus of the shell
+status : 0 or plus
+.TP
+.SH EXAMPLES
+.TP
+vagrant@vagrant-ubuntu$ ./hsh
+.TP
+$ pwd
+.TP
+$ ls
+.PP
+.SH AUTHOR
+Thibaut Bernard && Olivier Guyot
+.SH COPYRIGHT
+.PP
+Copyright (c) 2020 Thibaut Bernard && Olivier Guyot
