@@ -6,7 +6,7 @@
  * @environ: environ
  * Return: (0)
  */
-char *_child_process(char **argv, char **env, envNodes *environ)
+char *_child_process(char **argv, char **env, envNodes *envi)
 {
 	char *s, *s1, *path;
 	int child, status;
@@ -21,14 +21,15 @@ char *_child_process(char **argv, char **env, envNodes *environ)
 		perror("Error chill process");
 	if (child == 0)
 	{
-		path = checkPath(argv[0], &environ);
+		path = checkPath(argv[0], &envi);
+		printf("%s\n", path);
 		if (path != NULL)
 			exec(path, argv, status);
 		else if (stat(argv[0], sb) == 0)
 			exec(argv[0], argv, status);
 		else if (path == NULL)
 		{
-			s = _getenv("PWD", &environ);
+			s = _getenv("PWD", &envi);
 			s1 = _concat(s, argv[0], '/');
 /**			free(s); **/
 			free(argv[0]);
