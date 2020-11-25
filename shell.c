@@ -56,5 +56,7 @@ int main(int ac, char **av, char **env)
 		_prompt(envt);
 	}
 	free(buffer);
+	free_list(envt);
+	freetab(argv);
 	return (0);
 }

@@ -40,5 +40,6 @@ char *_child_process(char **argv, char **env, envNodes *environ)
 	else
 		wait(&status);
 /**	free(path); **/
+	free(sb);
 	return (path);
 }
