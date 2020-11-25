@@ -12,7 +12,8 @@ int _help(int n, char **s, envNodes **node)
 	(void)n;
 	(void)node;
 	char *arr1[] = {"env", "setenv", "unsetenv", "exit", "cd", NULL};
-	char *arr2[] = {"env - Print the environment\n", "setenv [variable] [value] - Initialize or update variable of environment\n",
+	char *arr2[] = {"env - Print the environment\n",
+"setenv [variable] [value] - Initialize or update variable of environment\n",
 	"unsetenv [variable] - Remove variable in the environments\n",
 	"exit [status] - Exit all the process\n", "cd - change directory\n", NULL};
 	char *tmp;
