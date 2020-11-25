@@ -19,13 +19,13 @@ int exit_process(int nb, char **s, envNodes **env)
 		if (sts > 0 && sts < 2147483647)
 		{
 			freetab(s);
-/**			free_list(*env);**/
+			free_list(*env);
 			exit(sts);
 		}
 		else
 		{
 			freetab(s);
-	/**		free_list(*env);**/
+			free_list(*env);
 			_putstr("Bad exit status");
 			_putstr("\n");
 			return (0);
@@ -35,7 +35,7 @@ int exit_process(int nb, char **s, envNodes **env)
 	else
 	{
 		freetab(s);
-	/**	free_list(*env); **/
+		free_list(*env);
 		exit(sts);
 	}
 	return (0);
