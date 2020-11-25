@@ -43,8 +43,8 @@ int main(int ac, char **av, char **env)
 	(void)ac, (void)av, (void)env;
 	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
-	if (isatty(STDIN_FILENO) == 1)
-		_prompt(envt);
+/*	if (isatty(STDIN_FILENO) == 1)*/
+/*		_prompt(envt);*/
 	while ((ret_gline = getline(&buffer, &length, stdin)) != EOF)
 	{
 		argv = parseintab(buffer);
@@ -52,8 +52,8 @@ int main(int ac, char **av, char **env)
 			_launchbuiltin(b1, argv, envt);
 		else
 			_child_process(argv, env, envt);
-	if (isatty(STDIN_FILENO) == 1)
-		_prompt(envt);
+/*	if (isatty(STDIN_FILENO) == 1)*/
+/*		_prompt(envt);*/
 	}
 	return (0);
 }
