@@ -35,8 +35,8 @@ int _setenv(int n, char **s, envNodes **env)
 		write(STDERR_FILENO, "Failure\n", 9);
 		return (0);
 	}
-	var = s[1]; /** malloc ? **/
-	value = s[2]; /** malloc ? **/
+	var = _strdup(s[1]); /** malloc ? **/
+	value = _strdup(s[2]); /** malloc ? **/
 	length_var = _strlen(var);
 	tmpStr = _concat(var, value, '='); /** free tmpStr **/
 	while (current->next)
@@ -44,17 +44,23 @@ int _setenv(int n, char **s, envNodes **env)
 		if (_strncmp(current->str, var, length_var) == 0)
 		{
 			/**free tmp->str**/
-			current->str = tmpStr; /** strdup ? **/
+			free(current->str);
+			current->str = _strdup(tmpStr); /** strdup ? **/
+			free(var);
+			free(value);
+			free(tmpStr);
 			/**free(tmpStr);**/
 			return (1);
 		}
 		 current = current->next;
 	}
 	if (_strncmp(current->str, var, length_var) == 0)
-		current->str = tmpStr;
+		current->str = _strdup(tmpStr);
 	else
 		add_nodechar_end(&current, tmpStr);
 	free(tmpStr);
+	free(var);
+	free(value);
 	return (1);
 }
 /**
