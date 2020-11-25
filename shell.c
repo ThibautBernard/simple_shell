@@ -55,5 +55,6 @@ int main(int ac, char **av, char **env)
 	if (isatty(STDIN_FILENO) == 1)
 		_prompt(envt);
 	}
+	free(buffer);
 	return (0);
 }
