@@ -31,17 +31,18 @@ This project was the last project of the first timester of Holberton School, his
 
 ## list of built-ins
 1. **setenv**
-    * setenv **[Variable]** **[Value]**
+    * Usage: setenv **[Variable]** **[Value]**
     * Initialize a new variable or update variable in environment
 2. **unsetenv**
-    * unsetenv **[Variable]**
+    * Usage: unsetenv **[Variable]**
     * Remove a variable in environment
 3. **env**
     * Print the environment
 4. **exit**
-    * exit **[status]**
+    * Usage: exit **[status]**
     * Exit all the processus
 5. **cd**
+    * Usage: cd
     * Change directory
 ## How to install
 * ``` git clone https://github.com/ThibautBernard/simple_shell ```
