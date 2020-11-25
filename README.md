@@ -31,7 +31,7 @@ This project was the last project of the first timester of Holberton School, his
 
 ## list of built-ins
 1. **setenv**
-    * setenv **[Variable]** **[Value]***
+    * setenv **[Variable]** **[Value]**
     * Initialize a new variable or update variable in environment
 2. **unsetenv**
     * unsetenv **[Variable]**
