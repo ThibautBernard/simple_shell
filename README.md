@@ -2,7 +2,7 @@
 ![Shell_Illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Tcsh_ejecutándose_en_escritorio_Mac_OSX.png/1200px-Tcsh_ejecutándose_en_escritorio_Mac_OSX.png)
 ## Context of this project
 This project was the last project of the first timester of Holberton School, his purpose was to **re-write a shell in *only 16 days***, by group of 2. 
-### [See our article about all the processus of our shell](https://link.com)
+### [See our article](https://olivier-guyot-cu.medium.com/what-happened-when-you-type-ls-l-6e949275d268)
 ## Notions 
 1. **Struct / typedef**
 2. **Child Process**
@@ -29,16 +29,20 @@ This project was the last project of the first timester of Holberton School, his
    * **How to suspend the execution of a process until one of its children terminates.**
    * **What is EOF / “end-of-file”?**
 
-## list of commands
-1. **ls**
-2. **pwd**
-3. **rm**
-4. **setenv**
-5. **unsetenv**
-6. **env**
-7. **exit**
-8. **ctrl-c**
-9. **mkdir**
+## list of built-ins
+1. **setenv**
+    * setenv **[Variable]** **[Value]***
+    * Initialize a new variable or update variable in environment
+2. **unsetenv**
+    * unsetenv **[Variable]**
+    * Remove a variable in environment
+3. **env**
+    * Print the environment
+4. **exit**
+    * exit **[status]**
+    * Exit all the processus
+5. **cd**
+    * Change directory
 ## How to install
 * ``` git clone https://github.com/ThibautBernard/simple_shell ```
 ## How to execute
