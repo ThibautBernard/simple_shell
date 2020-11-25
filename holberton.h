@@ -101,4 +101,8 @@ void handle_ctrl(int sig_num);
 
 /** _setEnvChdir.c **/
 int _setenv_chdir(char *var, char *value, envNodes **env);
+
+/** _help.c **/
+int _help(int n, char **s, envNodes **node);
+
 #endif
