@@ -85,7 +85,7 @@ drwxrwxr-x 7 vagrant vagrant  4096 Mar 21 21:05 shell.c
 ...
  ``` 
  
- ## All function in progress
+ ## All function in a tree
  
  ![Shell_Illustration](https://github.com/ThibautBernard/simple_shell/blob/main/versionB/Shell%20Function.png?raw=true)
  
