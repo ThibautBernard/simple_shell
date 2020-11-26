@@ -28,6 +28,7 @@ int exit_process(int nb, char **s, envNodes **env)
 			free_list(*env);
 			_putstr("Bad exit status");
 			_putstr("\n");
+			exit(sts);
 			return (0);
 		}
 		/** free_list(*env); **/
