@@ -48,6 +48,7 @@ int main(int ac, char **av, char **env)
 	while ((ret_gline = getline(&buffer, &length, stdin)) != EOF)
 	{
 		argv = parseintab(buffer);
+		free(buffer);
 		if (_checkbuiltin(b1, argv) == 1)
 		{
 			_launchbuiltin(b1, argv, envt);
