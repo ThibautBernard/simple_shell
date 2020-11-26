@@ -13,16 +13,14 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 	struct stat *sb;
 	(void)env;
 
+	if (argv[0] == NULL)
+		return (NULL);
+
 	child = fork();
 	if (child == -1)
 		perror("Error chill process");
 	if (child == 0)
 	{
-		if (argv[0] == NULL)
-		{
-			kill(child, SIGKILL);
-			/*return (NULL);*/
-		}
 		sb = malloc(sizeof(struct stat));
 		if (sb == NULL)
 			return (NULL);
