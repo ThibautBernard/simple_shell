@@ -15,7 +15,6 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 
 	if (argv[0] == NULL)
 		return (NULL);
-
 	child = fork();
 	if (child == -1)
 		perror("Error chill process");
@@ -29,8 +28,9 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 		path = checkPath(argv[0], &envi);
 		if (path != NULL)
 			exec(path, argv, status);
-		else if (b  == 0)
+		else if (b  == 1)
 		{
+			printf("3\n");
 			s = _getenv("PWD", &envi);
 			s1 = _concat(s, argv[0], '/');
 			free(argv[0]);
@@ -39,10 +39,10 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 			free(s1);
 			exec(argv[0], argv, status);
 		}
-		else if (b == 1)
-		{
-			kill(child, SIGKILL);
-		}
+		else if (b == 0)
+			exec(argv[0], argv, status);
+		else
+			return (NULL);
 	}
 	else
 		wait(&status);
