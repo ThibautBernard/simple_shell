@@ -50,6 +50,8 @@ char *checkPath(char *cmd, envNodes **env)
 	sb = malloc(sizeof(struct stat));
 	if (sb == NULL)
 		return (NULL);
+	if (cmd == NULL)
+		return (NULL);
 	str = _getenv("PATH", env);
 	if (str == NULL)
 		return (NULL);
