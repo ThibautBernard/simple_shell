@@ -84,5 +84,10 @@ drwxrwxr-x 7 vagrant vagrant  4096 Mar 21 21:05 shell.c
 -rw-rw-r-- 1 vagrant vagrant   369 Mar 22 20:47 _strtok.c
 ...
  ``` 
+ 
+ ## All function in progress
+ 
+ ![Shell_Illustration](https://github.com/ThibautBernard/simple_shell/blob/main/versionB/Shell%20Function.png?raw=true)
+ 
  ***done by Olivier Guyot && Thibaut Bernard***
 
