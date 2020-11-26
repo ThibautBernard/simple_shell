@@ -30,14 +30,19 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 		if (path != NULL)
 			exec(path, argv, status);
 		else if (b  == 0)
-			exec(argv[0], argv, status);
-		else if (path == NULL)
 		{
 			s = _getenv("PWD", &envi);
 			s1 = _concat(s, argv[0], '/');
 			free(argv[0]);
+			free(s);
 			argv[0] = _strdup(s1);
-			exec(s1, argv, status);
+			free(s1);
+			exec(argv[0], argv, status);
+		}
+		else if (b == 1)
+		{
+			free(path);
+			return (NULL);
 		}
 	}
 	else
