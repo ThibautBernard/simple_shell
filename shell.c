@@ -49,14 +49,19 @@ int main(int ac, char **av, char **env)
 	{
 		argv = parseintab(buffer);
 		if (_checkbuiltin(b1, argv) == 1)
+		{
 			_launchbuiltin(b1, argv, envt);
+			freetab(argv);
+		}
 		else
+		{
 			_child_process(argv, env, envt);
+			freetab(argv);
+		}
 	if (isatty(STDIN_FILENO) == 1)
 		_prompt(envt);
 	}
 	free(buffer);
 	free_list(envt);
-	freetab(argv);
 	return (0);
 }
