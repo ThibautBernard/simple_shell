@@ -99,6 +99,7 @@ void exec(char *cmd, char **argv, int status);
 
 /** shell.c **/
 void handle_ctrl(int sig_num);
+void _promptatty(envNodes *envt);
 
 /** _setEnvChdir.c **/
 int _setenv_chdir(char *var, char *value, envNodes **env);
