@@ -41,8 +41,7 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 		}
 		else if (b == 1)
 		{
-			free(path);
-			return (NULL);
+			kill(child, SIGKILL);
 		}
 	}
 	else
