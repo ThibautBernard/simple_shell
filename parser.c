@@ -59,7 +59,10 @@ char *checkPath(char *cmd, envNodes **env)
 		return (NULL);
 	}
 	if (str[0] != '/')
+	{
+		free(str);
 		return (NULL);
+	}
 	sb = malloc(sizeof(struct stat));
 	if (sb == NULL)
 		return (NULL);
