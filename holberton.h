@@ -110,6 +110,4 @@ int _help(int n, char **s, envNodes **node);
 /**chdir**/
 int _cd(int a, char **tb, envNodes **env);
 int changedir(char *dest, envNodes **env);
-
-int env_parse(int length, const char *str, char delim);
 #endif

@@ -33,6 +33,7 @@ char **parseintab(char *str)
 	free(temp);
 	return (av);
 }
+
 /**
  * checkPath - check in the path folder and return correct path if found
  * and match with the command
@@ -47,15 +48,20 @@ char *checkPath(char *cmd, envNodes **env)
 	struct stat *sb;
 	int i = 0;
 
-	sb = malloc(sizeof(struct stat));
-	if (sb == NULL)
-		return (NULL);
 	if (cmd == NULL)
 		return (NULL);
 	str = _getenv("PATH", env);
 	if (str == NULL)
 		return (NULL);
+	if (str[0] == '\0')
+	{
+		free(str);
+		return (NULL);
+	}
 	if (str[0] != '/')
+		return (NULL);
+	sb = malloc(sizeof(struct stat));
+	if (sb == NULL)
 		return (NULL);
 	s = _strtok(str, ":");
 	while (s)

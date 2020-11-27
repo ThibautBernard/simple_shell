@@ -121,6 +121,8 @@ char *_getenv(const char *name, envNodes **env)
 
 	if (name == NULL)
 		return (NULL);
+	if (name[0] == '\0')
+		return (NULL);
 	length_name = _strlen_const(name);
 	while (tmp_env)
 	{
