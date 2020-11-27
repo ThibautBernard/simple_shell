@@ -30,7 +30,6 @@ char *_child_process(char **argv, char **env, envNodes *envi)
 			exec(path, argv, status);
 		else if (b  == 1)
 		{
-			printf("3\n");
 			s = _getenv("PWD", &envi);
 			s1 = _concat(s, argv[0], '/');
 			free(argv[0]);
