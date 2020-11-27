@@ -9,7 +9,7 @@
  */
 int exit_process(int nb, char **s, envNodes **env)
 {
-	int sts = 0;
+	int sts = 2;
 	(void)nb;
 	(void)s;
 	(void)env;
