@@ -12,6 +12,17 @@ void handle_ctrl(int sig_num)
 	_putstr("$ ");
 }
 
+/**
+ * _promptatty - promptatty
+ * @envt: environnement
+ * Return: Nothing
+ **/
+
+void _promptatty(envNodes *envt)
+{
+	if (isatty(STDIN_FILENO) == 1)
+		_prompt(envt);
+}
 
 /**
  * main - main function
@@ -42,20 +53,26 @@ int main(int ac, char **av, char **env)
 	(void)ac, (void)av, (void)env;
 	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
-	if (isatty(STDIN_FILENO) == 1)
-		_prompt(envt);
+	_promptatty(envt);
 	while ((ret_gline = getline(&buffer, &length, stdin)) != EOF)
 	{
 		argv = parseintab(buffer);
+		if (buffer != NULL)
+			free(buffer);
 		if (_checkbuiltin(b1, argv) == 1)
+		{
 			_launchbuiltin(b1, argv, envt);
+			freetab(argv);
+		}
 		else
+		{
 			_child_process(argv, env, envt);
-	if (isatty(STDIN_FILENO) == 1)
-		_prompt(envt);
+			freetab(argv);
+		}
+		_promptatty(envt);
+		buffer = NULL;
 	}
 	free(buffer);
 	free_list(envt);
-	freetab(argv);
 	return (0);
 }
