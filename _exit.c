@@ -37,7 +37,7 @@ int exit_process(int nb, char **s, envNodes **env)
 	{
 		freetab(s);
 		free_list(*env);
-		exit(sts);
+		exit(2);
 	}
 	return (0);
 }
