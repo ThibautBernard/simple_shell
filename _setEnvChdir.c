@@ -25,8 +25,9 @@ int _setenv_chdir(char *var, char *value, envNodes **env)
 		if (_strncmp(current->str, var, length_var) == 0)
 		{
 			/**free tmp->str**/
-			current->str = tmpStr; /** strdup ? **/
-			/**free(tmpStr);**/
+			free(current->str);
+			current->str = _strdup(tmpStr); /** strdup ? **/
+			free(tmpStr);
 			return (1);
 		}
 		 current = current->next;
@@ -35,6 +36,6 @@ int _setenv_chdir(char *var, char *value, envNodes **env)
 		current->str = tmpStr;
 	else
 		add_nodechar_end(&current, tmpStr);
-	/**free(tmpStr); **/
+	free(tmpStr);
 	return (1);
 }
