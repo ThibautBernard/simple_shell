@@ -54,7 +54,7 @@ int main(int ac, char **av, char **env)
 	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
 	_promptatty(envt);
-	while (ret_gline = getline(&buffer, &length, stdin) != EOF)
+	while ((ret_gline = getline(&buffer, &length, stdin)) != EOF)
 	{
 		argv = parseintab(buffer);
 		if (buffer != NULL)
