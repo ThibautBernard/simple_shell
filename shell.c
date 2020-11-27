@@ -54,10 +54,8 @@ int main(int ac, char **av, char **env)
 	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();
 	_promptatty(envt);
-	while (ret_gline != EOF)
+	while (ret_gline = getline(&buffer, &length, stdin) != EOF)
 	{
-		buffer = NULL;
-		ret_gline = getline(&buffer, &length, stdin);
 		argv = parseintab(buffer);
 		if (buffer != NULL)
 			free(buffer);
@@ -72,7 +70,9 @@ int main(int ac, char **av, char **env)
 			freetab(argv);
 		}
 		_promptatty(envt);
+		buffer = NULL;
 	}
+	free(buffer);
 	free_list(envt);
 	return (0);
 }
