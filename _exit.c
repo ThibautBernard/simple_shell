@@ -16,7 +16,7 @@ int exit_process(int nb, char **s, envNodes **env)
 	if (s[1])
 	{
 		sts = _atoi(s[1]);
-		if (sts > 0 && sts < 2147483647)
+		if (sts >= 0 && sts < 2147483647)
 		{
 			freetab(s);
 			free_list(*env);
@@ -37,7 +37,7 @@ int exit_process(int nb, char **s, envNodes **env)
 	{
 		freetab(s);
 		free_list(*env);
-		exit(sts);
+		exit(2);
 	}
 	return (0);
 }
