@@ -39,7 +39,6 @@ int main(int ac, char **av, char **env)
 		{NULL, NULL}
 	};
 
-
 	(void)ac, (void)av, (void)env;
 	signal(SIGINT, handle_ctrl);
 	envt = transformEnv();

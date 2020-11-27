@@ -31,6 +31,7 @@ char **parseintab(char *str)
 	}
 	av[i] = NULL;
 	free(temp);
+	free(length_param);
 	return (av);
 }
 /**
